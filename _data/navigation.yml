@@ -2,10 +2,10 @@
 main:
   - title: "Quick-Start Guide"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
+   - title: "C"
+     url: https://parang56.github.io/C/
+   - title: "C++"
+     url: https://parang56.github.io/C++/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
