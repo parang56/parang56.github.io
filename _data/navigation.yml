@@ -1,12 +1,12 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-   - title: "C"
-     url: https://parang56.github.io/C/
-   - title: "C++"
-     url: https://parang56.github.io/C++/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "C 배우기"
+    url: /C/
+  - title: "C++ 배우기"
+    url: "/C++/"
+  - title: "C# 배우기"
+    url: "/C#/"  
+  - title: "프로젝트"
+    url: /project/
+  #- title: "Publications"
+  #  url: "/publications/"
