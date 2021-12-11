@@ -1,0 +1,10 @@
+execute : Car.o RacingMain.o
+	gcc -o execute Car.o RacingMain.o Car.h
+Car.o : Car.c Car.h
+	gcc -c Car.c Car.h
+RacingMain.o : RacingMain.c Car.h
+	gcc -c RacingMain.c Car.h
+
+
+clean :
+	rm -f *.o execute
