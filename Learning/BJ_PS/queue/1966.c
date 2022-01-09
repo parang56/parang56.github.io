@@ -1,42 +1,51 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define MAX 100
 
-int main(void)
+typedef struct Queue{
+	int queue[MAX];
+	int front;
+}Queue;
+
+void init_queue(Queue *q)
 {
-	int casenum;
-	scanf("%d",&casenum);
-	while(casenum--)
+	q->front = 0;
+}
+
+int main() 
+{
+	Queue* q=(Queue*)malloc(sizeof(Queue));
+	int TestCaseNum, DocNum, CuriousNum;
+	scanf("%d",&TestCaseNum);
+	while(TestCaseNum--)
 	{
-		int cnt=1,filenum, selprint,sum=0,temp;
-		scanf("%d %d",&filenum, &selprint);
-		int arr[filenum];
-		for(int i=0;i<filenum;i++)
-			scanf("%d",&arr[i]);
-		temp=arr[selprint+1];
+		init_queue(q);
+		int max=0;
+		int cnt=1;
+		scanf("%d %d", &DocNum, &CuriousNum);
+		for(int i=0;i<DocNum;i++)
+			scanf("%d",q->queue+i);
+		
 		while(1)
 		{
-			for(int k=1;k<filenum;k++)
+			for(int k=0;k<DocNum;k++)
 			{
-				if(arr[0]<arr[k])
-					sum+=1;
+				if(q->queue[k]>max)
+					max=q->queue[k]; //가장 중요도 높은 수 max에 넣기
 			}
-			if(sum==0)
+			while(q->queue[q->front]!=max) //queue[front]가 max 일치시키게 하기
+				q->front=(q->front+1)%DocNum;
+			
+			if(q->front==CuriousNum) //뽑는 수와 궁금한 수가 일치하면 cnt 출력
 				break;
-			int tmp=arr[0];
-			for(int j=filenum;j>0;j--)
-				arr[j-1]=arr[j];
-			arr[filenum]=tmp;
-			break;
-		}	
-		if(arr[0]==temp)
-		{
-			printf("%d\n",cnt);
-			break;
+			
+			q->queue[q->front]=0; //없앴다고 셈 치기
+			q->front = (q->front+1)%DocNum;
+			max=0;
+			cnt++;
 		}
-
-		for(int i=filenum;i>0;i--)
-			arr[i-1]=arr[i];
-		arr[filenum--];
-		cnt++;	
+		printf("%d\n",cnt);
 	}
 	return 0;
 }
